@@ -1,5 +1,5 @@
 <?php
 session_start();
-session_abort();
-header("Location:form.php");
+session_destroy();
+header("Location: ../PROJECT/login.php");
 ?>

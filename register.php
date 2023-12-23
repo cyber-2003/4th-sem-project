@@ -1,19 +1,28 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header('Location: ../PROJECT/dashboard.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
         }
-        
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        
+
         .login-form {
             background-color: rgba(43, 43, 91, 0.5);
             padding: 20px;
@@ -21,12 +30,12 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
             text-align: center;
         }
-        
+
         .login-form h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-        
+
         .login-form input {
             width: 96%;
             padding: 10px;
@@ -34,7 +43,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        
+
         .login-form button {
             background-color: #253346;
             color: #fff;
@@ -43,47 +52,55 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        
+
         .login-form button:hover {
             background-color: #132432;
         }
-        
+
         .login-form p {
             font-size: 14px;
             color: #213145;
             cursor: pointer;
         }
-        a:link{
-            text-decoration:none;
+
+        a:link {
+            text-decoration: none;
 
         }
-        a:visited{
-            color:white;
+
+        a:visited {
+            color: white;
+        }
+
+        .mt-2 {
+            margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <form class="login-form" action="../project/registerControl.php" method="post">
+        <form class="login-form" action="../PROJECT/registerControl.php" method="post">
             <h1>Register</h1>
             <?php
-session_start();
-
-            if(isset($_SESSION['message'])){
+            if (isset($_SESSION['message'])) {
                 $message = $_SESSION['message'];
-                ?>
+            ?>
 
-                <p style="color: white; background-color:red;"><?=$message?></p>
+                <p style="color: white; background-color:red;"><?= $message ?></p>
 
-                <?php
+            <?php
                 unset($_SESSION['message']);
             }
             ?>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Register</button> 
+            <button type="submit">Register</button>
+            <div class="mt-2">
+                <span><a href="../PROJECT/login.php">Already have an account?</a></span>
+            </div>
         </form>
     </div>
 </body>
-</html>
 
+</html>

@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$database = "4thsem";
+$database = "sem";
 $username = "root";
 $password = "";
 $connection;
@@ -27,7 +27,7 @@ function create($tableName, $data) // create c
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
-// sql injection //pdo 
+        // sql injection //pdo
         $stmt->execute();
         echo "Record created successfully";
         return true;
@@ -51,6 +51,34 @@ function read($tableName, $condition = '') // read R
         return [];
     }
 }
+function readUserById($user_id)
+{
+    global $connection;
+
+    try {
+        $sql = "SELECT * FROM users where id = $user_id";
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return [];
+    }
+}
+function sql($query) // read R
+{
+    global $connection;
+
+    try {
+        $sql = $query;
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return [];
+    }
+}
 
 function readAll($tableName, $condition = '') // read R
 {
@@ -58,8 +86,8 @@ function readAll($tableName, $condition = '') // read R
 
     try {
         $sql = "SELECT * FROM $tableName $condition";
-
         $stmt = $connection->prepare($sql);
+        // var_dump($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -96,7 +124,7 @@ function delete($tableName, $condition) // Delete D
         $sql = "DELETE FROM $tableName $condition";
         $stmt = $connection->prepare($sql);
         $stmt->execute();
-        echo "Record deleted successfully";
+        return true;
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
