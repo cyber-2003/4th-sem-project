@@ -45,7 +45,7 @@ function handleUpdateProfile($user_id)
 
         $condition = "where id = $user_id";
         if (update('users', $data, $condition)) {
-            header('Location: /');
+            header('Location: ../PROJECT/');
             exit();
         } else {
             $error = "Failed to update profile. Please try again.";
@@ -60,7 +60,7 @@ function handleUpdateProfile($user_id)
 
     $condition = "where id = $user_id";
     if (update('users', $data, $condition)) {
-        header('Location: /');
+        header('Location: ../PROJECT/');
         exit();
     } else {
         $error = "Failed to update profile. Please try again.";

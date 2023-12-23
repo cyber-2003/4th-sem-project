@@ -2,10 +2,10 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../PROJECT/logout.php');
+    header('Location: ../../PROJECT/logout.php');
     exit();
 }
-require('../PROJECT/dbconnect.php');
+require('../../PROJECT/dbconnect.php');
 
 $user_id = $_SESSION['user_id'];
 $userDetails = readUserById($user_id);
@@ -32,14 +32,14 @@ if($userDetails['role'] != 'admin'){
                 <h1>ADMIN FASHION</h1>
             </div>
             <ul class="list-items">
-                <li><a href="../PROJECT/users.php" class="link">USERS</a></li>
-                <li><a href="../PROJECTproduts.php" class="link">PRODUCTS</a></li>
-                <li><a href="../PROJECTorder.php" class="link">ORDER</a></li>
+                <li><a href="../../PROJECT/users.php" class="link">USERS</a></li>
+                <li><a href="../../PROJECT/produts.php" class="link">PRODUCTS</a></li>
+                <li><a href="../../PROJECT/order.php" class="link">ORDER</a></li>
             </ul>
 
             <div class="nav-btns">
-                <a href="../PROJECT/logout.php" class="btn-nav-i"><i class="fas fa-sign-out-alt"></i></a>
-                <a href="../PROJECT" class="btn-nav-i"><i class="fas fa-house-user"></i></a>
+                <a href="../../PROJECT/logout.php" class="btn-nav-i"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="../../PROJECT" class="btn-nav-i"><i class="fas fa-house-user"></i></a>
             </div>
         </nav>
         <div class="main" style="height:100%;">

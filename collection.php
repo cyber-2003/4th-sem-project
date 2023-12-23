@@ -22,7 +22,7 @@ $count = $count[0]['count(*)'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../PROJECT/style.css" />
     <title>Fashion</title>
     <style>
         body {
@@ -111,7 +111,7 @@ $count = $count[0]['count(*)'];
                         <div class="card-content">
                             <h3 class="card-title"><?= $data['title'] ?></h3>
                             <p class="card-text"><?= $data['description'] ?></p>
-                            <a href="/product.php?product=<?= $data['id'] ?>" class="card-btn">View</a>
+                            <a href="../PROJECT/product.php?product=<?= $data['id'] ?>" class="card-btn">View</a>
                         </div>
                     </div>
 

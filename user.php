@@ -129,7 +129,7 @@ $userDetails = readUserById($user_id);
                 <a href="../PROJECT/cart.php" class="btn-nav-i"><i class="fas fa-cart-plus"><span><?= $count ?></span></i></a>
                 <a href="../PROJECT/user.php" class="btn-nav-i"><i class="fas fa-user"></i></a>
                 <?php if($userDetails['role'] === 'admin'): ?>
-                 <a href="/admin/" class="btn-nav-i"><i class="fas fa-unlock"></i></a>
+                 <a href="../PROJECT/admin/" class="btn-nav-i"><i class="fas fa-unlock"></i></a>
                  <?php endif; ?>
             </div>
         </nav>
